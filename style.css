@@ -1,0 +1,368 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 100px; /* Account for fixed header */
+}
+.file{
+    align-self: center;
+    justify-self: center;
+}
+.fil{
+    align-self: center;
+    justify-self: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(2000deg,rgb(39, 39, 108) ,black );
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  border: 2px solid blue;
+  box-shadow: 0 0 2000px blue;
+  border-radius: 8px;
+}
+.pin{
+    align-self: center;
+    justify-self: center;
+color: rgb(137, 26, 26);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.logos {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  
+}
+   nav ul li a:hover {
+      color: #f4b400;
+    }
+
+main {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 200px); /* Ensure full height feel */
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h1,
+h2 {
+  color: #0a1f44;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid #0a1f44;
+  padding-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+strong {
+  color: #0a1f44;
+  font-weight: 700;
+}
+
+/* Image and picture handling */
+picture {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  background-color: #0a1f44;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+  color: #fff;
+}
+body.dark-mode {
+    background: linear-gradient(200deg, rgba(40, 18, 240, 0.5), rgb(17, 126, 160), rgb(160, 175, 19));
+    color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px; /* Reduce for smaller header on mobile */
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .hurt {
+    align-self: center;
+    justify-content: center;
+  }
+
+  header {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .header-brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .brand-title {
+    font-size: 1.3rem;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  picture,
+  img {
+    margin: 1rem auto;
+    border-radius: 6px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+
+  footer {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 70px;
+  }
+
+  header {
+    padding: 0.5rem;
+  }
+  .hurt{
+    padding-left: 20px;
+  }
+
+
+  .brand-title {
+    font-size: 1.2rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  main {
+    padding: 1rem 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  footer {
+    padding: 0.75rem;
+  }
+}
+
+/* Additional enhancements for niceness */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support (optional enhancement) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  h1, h2 {
+    color: #4a90e2;
+  }
+
+  footer {
+    background-color: #0a1f44;
+  }
+}
+/* --- Subtle animations & hover accents --- */
+.hero h2 {
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.hero p {
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button-like hover on nav links */
+nav a:hover {
+  background-color: #4a90e2;
+  color: #fff;
+}
