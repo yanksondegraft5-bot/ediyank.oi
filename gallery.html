@@ -1,278 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ediyanks Fashion Gallery</title>
-  <link rel="shortcut icon" href="Copilot_20251016_120516.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ediyanks Fashion Gallery</title>
 
-    header {
-      background-color: rgb(28, 28, 78);
-      color: rgb(36, 63, 196);
-      padding: 15px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 8px;
-    }
+<link rel="shortcut icon" href="Copilot_20251016_120516.png">
 
-    header .brand-title {
-      margin-left: 10px;
-      font-size: 1.4em;
-    }
+<style>
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
+body{
+background:#0f172a;
+color:white;
+transition:.3s;
+}
 
-    nav ul li a:hover {
-      color: #f4b400;
-    }
+/* HEADER */
+header{
+background:linear-gradient(135deg,rgb(28,28,78),rgb(36,63,196));
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 5px 20px rgba(0,0,0,.4);
+}
 
-    main {
-      padding: 30px;
-      text-align: center;
-    }
+.header-brand{
+display:flex;
+align-items:center;
+gap:10px;
+}
 
-    h2 {
-      font-size: 2em;
-      color: #333;
-      margin-bottom: 20px;
-    }
+.logo{
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #00ffff;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      justify-items: center;
-    }
+.brand-title{
+font-size:1.4rem;
+color:white;
+}
 
-    .gallery img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
+/* NAV */
+nav ul{
+list-style:none;
+display:flex;
+gap:15px;
+}
 
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+nav a{
+text-decoration:none;
+color:white;
+padding:8px 12px;
+border-radius:10px;
+transition:.3s;
+}
 
-    /* Pop-up lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-    }
+nav a:hover{
+background:#00ffff;
+color:#000;
+}
 
-    .lightbox img {
-      max-width: 30%;
-      max-height: 70%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
+/* HERO */
+.gallery-hero{
+text-align:center;
+padding:50px 20px;
+}
 
-    .lightbox:target {
-      display: flex;
-    }
-      .lightboxi {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-    }
+.gallery-hero h1{
+font-size:2.8rem;
+color:#00ffff;
+text-shadow:0 0 20px #00ffff;
+}
 
-    .lightboxi img {
-      max-width: 30%;
-      max-height: 70%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
+.gallery-hero p{
+max-width:700px;
+margin:auto;
+color:#ddd;
+line-height:1.6;
+}
 
-    .lightboxi:target {
-      display: flex;
-    }
+/* SECTION TITLES */
+h2{
+text-align:center;
+margin:25px 0;
+color:#00ffff;
+text-shadow:0 0 10px #00ffff;
+}
 
-    .close-btn {
-      position: absolute;
-      top: 20px; 
-      right: 30px;
-      font-size: 30px;
-      color: white;
-      text-decoration: none;
-      background: rgba(0,0,0,0.5);
-      padding: 5px 12px;
-      border-radius: 50%;
-    }
-    body {
-    background-color:rgb(0, 0, 0);
-    color: rgb(253, 249, 249);
-    transition: background-color 0.3s, color 0.3s;
+/* BUTTON */
+#modeToggle{
+display:block;
+margin:10px auto;
+padding:10px 15px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+background:#00ffff;
+color:black;
+font-weight:bold;
+}
 
-  }
-    #modetoggle{
-      background-color: black;
-      color: bisque;
-    }
-     #modeToggle:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  }
+/* GALLERY GRID */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+padding:20px;
+}
 
-  #modeToggle {
-    transform: perspective(600px) rotateY(0deg);
-    transition: transform 0.6s;
-  }
-  body.dark-mode #modeToggle {
-    transform: perspective(600px) rotateY(180deg) translateZ(0);
-    transform-origin: center;
-    background-color: rgb(19, 16, 16);
-    color: black;
-    box-shadow: 0 10px 30px rgba(0,255,128,0.12), inset 0 2px 6px rgba(255,255,255,0.02);
-    border-radius: 10px;
-    transition: transform .6s cubic-bezier(.2,.9,.3,1), box-shadow .5s ease, background .5s ease, color .3s ease;
-    will-change: transform, box-shadow;}
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,.4);
+transition:.3s;
+cursor:pointer;
+}
 
-    .close-btn:hover {
-      background: rgba(255,255,255,0.3);
-    }
+.gallery img:hover{
+transform:scale(1.05) translateY(-5px);
+box-shadow:0 15px 35px rgba(0,255,255,.2);
+}
 
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
-      font-size: 0.9em;
-    }
-  </style>
+/* LIGHTBOX */
+.lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.lightbox:target{
+display:flex;
+}
+
+.lightbox img{
+max-width:85%;
+max-height:85%;
+border-radius:20px;
+box-shadow:0 0 30px rgba(255,255,255,.2);
+}
+
+.close-btn{
+position:absolute;
+top:20px;
+right:25px;
+font-size:30px;
+color:white;
+text-decoration:none;
+background:rgba(255,255,255,.1);
+padding:5px 12px;
+border-radius:50%;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#111827;
+color:#ccc;
+}
+
+/* LIGHT MODE */
+.light{
+background:#f5f5f5;
+color:#111;
+}
+
+.light header{
+background:#ffffff;
+color:#111;
+}
+
+.light nav a{
+color:#111;
+}
+
+.light footer{
+background:#eee;
+color:#111;
+}
+
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="header-brand">
-      <h1 class="brand-title"><img src="edi1.png" alt="Ediyanks Fashion Logo" class="logo" />Ediyanks Fashion</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="indexs.html">Contact</a></li>
-       
-      </ul>
-    </nav>
-  </header>
-  
 
-  <main>
-    <h2>our gallery</h2>
-    <h2>Ghanaian Fashion Styles for laddy's</h2>
-     <button id="modeToggle">💡</button>
-    <p>Explore simple, elegant African wear styles — proudly Ghanaian.</p>
+<header>
 
-    <section class="gallery">
-      <a href="#img1"><img src="https://images.pexels.com/photos/33697670/pexels-photo-33697670.jpeg" alt="African Fashion Style 1" /></a>
-      <a href="#img2"><img src="pic1.jpg" alt="African Fashion Style 2" /></a>
-      <a href="#img3"><img src="pic2.jpg" alt="African Fashion Style 3" /></a>
-      <a href="#img4"><img src="pic3.jpg" alt="African Fashion Style 4" /></a>
-      <a href="#img5"><img src="pic4.jpg" alt="African Fashion Style 5" /></a>
-      <a href="#img6"><img src="pic5.jpg" alt="African Fashion Style 6" /></a>
-      <a href="#img7"><img src="pic6.jpg" alt="African Fashion Style 7" /></a>
-      <a href="#img8"><img src="pic7.jpg" alt="African Fashion Style 8" /></a>
-      <a href="#img9"><img src="pic8.jpg" alt="African Fashion Style 9" /></a>
-      <a href="#img10"><img src="pic9.jpg" alt="African Fashion Style 10" /></a>
-    </section>
-  </main>
+<div class="header-brand">
+<img src="edi1.png" class="logo" alt="logo">
+<h1 class="brand-title">Ediyanks Fashion</h1>
+</div>
 
-  <!-- Lightbox Pop-ups -->
-  <div id="img1" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="https://images.pexels.com/photos/33697670/pexels-photo-33697670.jpeg" alt=""></div>
-  <div id="img2" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic1.jpg" alt=""></div>
-  <div id="img3" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic2.jpg" alt=""></div>
-  <div id="img4" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic3.jpg" alt=""></div>
-  <div id="img5" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic4.jpg" alt=""></div>
-  <div id="img6" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic5.jpg" alt=""></div>
-  <div id="img7" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic6.jpg" alt=""></div>
-  <div id="img8" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic7.jpg" alt=""></div>
-  <div id="img9" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic8.jpg" alt=""></div>
-  <div id="img10" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic9.jpg" alt=""></div>
-    <main>
-      <h2 class="title">Ghanaian Fashion Styles</h2>
-    <h2>dresses for mens</h2>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="indexs.html">Contact</a></li>
+</ul>
+</nav>
 
-    <section class="gallery">
-      <a href="#img11"><img src="pica1.jpg" alt="African Fashion Style 1" /></a>
-      <a href="#img12"><img src="pica2.jpg" alt="African Fashion Style 2" /></a>
-      <a href="#img13"><img src="pica3.jpg" alt="African Fashion Style 3" /></a>
-      <a href="#img14"><img src="pica4.jpg" alt="African Fashion Style 4" /></a>
-      <a href="#img15"><img src="pica5.jpg" alt="African Fashion Style 5" /></a>
-      <a href="#img16"><img src="pica6.jpg" alt="African Fashion Style 6" /></a>
-      <a href="#img17"><img src="pica7.jpg" alt="African Fashion Style 7" /></a>
-      <a href="#img18"><img src="pica8.jpg" alt="African Fashion Style 8" /></a>
-      <a href="#img19"><img src="pica9.jpg" alt="African Fashion Style 9" /></a>
-      <a href="#img20"><img src="pica10.jpg" alt="African Fashion Style 10" /></a>
-    </section>
-  </main>
+</header>
 
-  <!-- Lightbox Pop-ups -->
-  <div id="img11" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica1.jpg" alt=""></div>
-  <div id="img12" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica2.jpg" alt=""></div>
-  <div id="img13" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica3.jpg" alt=""></div>
-  <div id="img14" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica4.jpg" alt=""></div>
-  <div id="img15" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica5.jpg" alt=""></div>
-  <div id="img16" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica6.jpg" alt=""></div>
-  <div id="img17" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica7.jpg" alt=""></div>
-  <div id="img18" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica8.jpg" alt=""></div>
-  <div id="img19" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica9.jpg" alt=""></div>
-  <div id="img20" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica10.jpg" alt=""></div>
+<!-- HERO -->
+<section class="gallery-hero">
+<h1>Fashion Gallery</h1>
+<p>Explore elegant Ghanaian fashion designs for ladies and men, proudly made by Ediyanks Fashion.</p>
+</section>
+
+<button id="modeToggle">Toggle Theme</button>
+
+<!-- LADIES -->
+<h2>Ladies Fashion</h2>
+<section class="gallery">
+
+<a href="#img1"><img src="https://images.pexels.com/photos/33697670/pexels-photo-33697670.jpeg"></a>
+<a href="#img2"><img src="pic1.jpg"></a>
+<a href="#img3"><img src="pic2.jpg"></a>
+<a href="#img4"><img src="pic3.jpg"></a>
+<a href="#img5"><img src="pic4.jpg"></a>
+<a href="#img6"><img src="pic5.jpg"></a>
+<a href="#img7"><img src="pic6.jpg"></a>
+<a href="#img8"><img src="pic7.jpg"></a>
+<a href="#img9"><img src="pic8.jpg"></a>
+<a href="#img10"><img src="pic9.jpg"></a>
+
+</section>
+
+<!-- MEN -->
+<h2>Men Fashion</h2>
+<section class="gallery">
+
+<a href="#img11"><img src="pica1.jpg"></a>
+<a href="#img12"><img src="pica2.jpg"></a>
+<a href="#img13"><img src="pica3.jpg"></a>
+<a href="#img14"><img src="pica4.jpg"></a>
+<a href="#img15"><img src="pica5.jpg"></a>
+<a href="#img16"><img src="pica6.jpg"></a>
+<a href="#img17"><img src="pica7.jpg"></a>
+<a href="#img18"><img src="pica8.jpg"></a>
+<a href="#img19"><img src="pica9.jpg"></a>
+<a href="#img20"><img src="pica10.jpg"></a>
+
+</section>
+
+<!-- LIGHTBOXES (cleaned) -->
+
+<div id="img1" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="https://images.pexels.com/photos/33697670/pexels-photo-33697670.jpeg"></div>
+<div id="img2" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic1.jpg"></div>
+<div id="img3" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic2.jpg"></div>
+<div id="img4" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic3.jpg"></div>
+<div id="img5" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic4.jpg"></div>
+<div id="img6" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic5.jpg"></div>
+<div id="img7" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic6.jpg"></div>
+<div id="img8" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic7.jpg"></div>
+<div id="img9" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic8.jpg"></div>
+<div id="img10" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pic9.jpg"></div>
+
+<div id="img11" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica1.jpg"></div>
+<div id="img12" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica2.jpg"></div>
+<div id="img13" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica3.jpg"></div>
+<div id="img14" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica4.jpg"></div>
+<div id="img15" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica5.jpg"></div>
+<div id="img16" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica6.jpg"></div>
+<div id="img17" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica7.jpg"></div>
+<div id="img18" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica8.jpg"></div>
+<div id="img19" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica9.jpg"></div>
+<div id="img20" class="lightbox"><a href="#" class="close-btn">&times;</a><img src="pica10.jpg"></div>
+
+<footer>
+© 2026 Ediyanks Fashion Venture | Powered by Demuck
+</footer>
+
+<script>
+const btn = document.getElementById("modeToggle");
+
+btn.addEventListener("click", ()=>{
+document.body.classList.toggle("light");
+});
+</script>
+
 </body>
-</body>
-</main>
-  <footer>
-    <p>&copy;  Ediyanks Fashion. powered by demuck</p>
-  </footer>
-  <!-- <style>
-    @media (max-width: 1316px) {
-  .title {
-            color: #fff;
-             font-size: 4rem;
-            font-weight: 700; 
-            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; /* Cyan anime glow */
-            margin-bottom: 2rem;
-            animation: textGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes textGlow {
-            from { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
-            to { text-shadow: 0 0 30px #ff00ff, 0 0 60px #ff00ff; } /* Shift to magenta for anime flair */
-        }}</style> -->
-<script src="DARK.JS"></script>
-</body>
-</html>
+  </html>
