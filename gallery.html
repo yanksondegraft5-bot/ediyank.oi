@@ -96,11 +96,10 @@ font-weight:bold;
 
 /* ROW (Netflix style) */
 .row{
-display:flex;
-overflow-x:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:15px;
 padding:10px 25px;
-scroll-behavior:smooth;
 }
 
 .row::-webkit-scrollbar{
@@ -109,8 +108,8 @@ display:none;
 
 /* CARD */
 .card{
-min-width:180px;
-height:260px;
+min-width:100px;
+height:240px;
 border-radius:15px;
 overflow:hidden;
 flex-shrink:0;
@@ -130,6 +129,11 @@ object-fit:cover;
 transform:scale(1.08);
 box-shadow:0 15px 35px rgba(56,189,248,.25);
 }
+  .card:hover{
+transform:scale(1.05);
+box-shadow:0 10px 25px rgba(56,189,248,.3);
+z-index:2;
+  }
 
 /* LIGHTBOX */
 .lightbox{
